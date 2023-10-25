@@ -20,7 +20,7 @@
     position:relative;
     backdrop-filter: blur(10px);
     border: solid white;
-    border-radius: 25px;
+    border-radius: 10px;
     max-width: 450px;
     display: flex;
     align-items: center;
@@ -29,6 +29,7 @@
     margin: auto;
     top: 1%;
     width: 75%;
+
 }
 
 
@@ -37,8 +38,8 @@
     padding: 10px;
     color: white;
     font-size: medium;
-
 }
+
 
 .AboutUs {
     background-image: url("MilitaryWarehouse.jpg");
@@ -55,17 +56,17 @@
     right: 0;
 }
 
-body, html {
+html {
     height: 100%;
 }
 
-*{
-    box-sizing: border-box;
+body {
+    height: 100%;
 }
 
 .formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px;
     background: #ffffff;
     padding: 30px;
     width: 90%;
