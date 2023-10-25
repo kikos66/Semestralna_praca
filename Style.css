@@ -17,19 +17,27 @@
 }
 
 .divAboutUs {
-    position:absolute;
-    transform:translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
+    position:relative;
     backdrop-filter: blur(10px);
     border: solid white;
     border-radius: 25px;
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    top: 1%;
+    width: 75%;
 }
+
+
 
 .paragraph {
     padding: 10px;
     color: white;
-    font-size: large;
+    font-size: medium;
+
 }
 
 .AboutUs {
