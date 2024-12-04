@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Profile</title>
     <link href="/Style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -15,7 +15,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbar">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
             </li>
@@ -23,25 +23,42 @@
                 <a class="nav-link" href="AboutUs">About us</a>
             </li>
         </ul>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a th:if="${session.user != null}" class="nav-link" href="Logout">Logout</a>
+            </li>
+        </ul>
     </div>
 </nav>
-
 <div class="wrapper">
-    <form class="formContent">
+    <form>
         <div class="form-floating pad">
-            <input type="email" class="form-control" id="floatingInput" name="email" required>
+            <input type="email" class="form-control" id="floatingInput" name="email" th:value="${session.email}" required>
             <label for="floatingInput">Email address</label>
         </div>
-
         <div class="form-floating pad">
-            <input type="password" class="form-control" id="floatingPassword" name="password" required>
-            <label for="floatingPassword">Password</label>
+            <input type="text" class="form-control" id="floatingUsername" name="username" th:value="${session.username}" required>
+            <label for="floatingUsername">Username</label>
         </div>
-        <div class="padTop">
-            <button type="submit" formmethod="post"  class="btn btn-dark">Login</button>
+        <div class="form-floating pad">
+            <input type="password" class="form-control" id="floatingPassword" name="currentPassword" required>
+            <label for="floatingPassword">Current password</label>
         </div>
-        <p class="padTop"> Don't have an account yet ? <a href="Register">Register here</a> </p>
+        <div class="form-floating pad">
+            <input type="password" class="form-control" id="floatingNew" name="newPassword">
+            <label for="floatingNew">New password</label>
+        </div>
+        <div class="button">
+            <a href="Profile">
+                <button  formmethod="post"  class="btn btn-dark">Save changes</button>
+            </a>
+        </div>
     </form>
+    <div class="button">
+        <a href="DeleteAccount">
+            <button formmethod="post" class="btn btn-danger">Delete your account</button>
+        </a>
+    </div>
 </div>
 </body>
 </html>

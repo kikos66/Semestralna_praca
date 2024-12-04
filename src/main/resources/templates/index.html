@@ -20,7 +20,15 @@
                 <a class="nav-link" href="AboutUs">About us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Login">Login</a>
+                <a th:if="${session.user != null}" class="nav-link" href="/Profile">Profile</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a th:if="${session.user == null}" class="nav-link" href="Login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a th:if="${session.user != null}" class="nav-link" href="Logout">Logout</a>
             </li>
         </ul>
         <form class="d-flex" role="search">

@@ -18,11 +18,30 @@ public class UserService {
     }
 
     public User authenticate(String email, String password) {
-        System.out.println("xd1");
         User user = userRepository.findByEmail(email);
         if (BCrypt.checkpw(password, user.getPassword())) {
             return user;
         }
         return null;
+    }
+
+    public User getByID(Long id) {
+        return userRepository.findByUserId(id);
+    }
+
+    public void deleteUserById(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    public boolean checkPassword(Long id, String password) {
+        User user = userRepository.findByUserId(id);
+        if (BCrypt.checkpw(password, user.getPassword())) {
+            return true;
+        }
+        return false;
+    }
+
+    public void changeData(User user) {
+        userRepository.save(user);
     }
 }

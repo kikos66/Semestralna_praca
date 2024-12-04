@@ -8,6 +8,13 @@
     padding: 20px;
 }
 
+.button {
+    display: inline-block;
+    visibility: visible;
+    position: relative;
+    z-index: 1;
+}
+
 .pad {
     padding: 2px;
 }

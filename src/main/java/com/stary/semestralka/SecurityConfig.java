@@ -14,14 +14,16 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/Register", "/Login", "/Style.css", "/AboutUs").permitAll() // Publicly accessible
-                        .anyRequest().authenticated() // Protect all other endpoints
+                        .anyRequest().permitAll() // Protect all other endpoints
                 )
-                .formLogin(form -> form
-                        .loginPage("/Login") // Custom login page
-                        .permitAll()
+                .csrf(csrf -> csrf
+                        .disable() // Disable CSRF if necessary (e.g., for stateless APIs)
                 );
+
+
 
         return http.build();
 
     }
 }
+
