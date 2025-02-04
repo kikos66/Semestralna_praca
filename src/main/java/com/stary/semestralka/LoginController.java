@@ -1,6 +1,7 @@
 package com.stary.semestralka;
 
 import jakarta.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 @RequestMapping("/Login")
+@RequiredArgsConstructor
 public class LoginController {
 
     @RequestMapping(method = RequestMethod.GET)
@@ -16,8 +18,7 @@ public class LoginController {
         return "Login";
     }
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/x-www-form-urlencoded", produces = "application/text")
     public String loginPost(@RequestBody MultiValueMap<String, String> parameters, Model model, HttpSession session) {

@@ -31,7 +31,7 @@ public class Controller {
     public String deleteAccount(HttpSession session) {
         User user = (User) session.getAttribute("user");
         if (user != null) {
-            userService.deleteUserById(user.getId());
+            userService.deleteUserById(user.getUserId());
             session.invalidate();
         }
 

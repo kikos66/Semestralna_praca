@@ -42,7 +42,7 @@ public class ProfileController {
         if (user == null) {
             return "redirect:/login"; // Redirect to login if not logged in
         }
-        if (!userService.checkPassword(user.getId(), parameters.get("currentPassword").get(0))) {
+        if (!userService.checkPassword(user.getUserId(), parameters.get("currentPassword").get(0))) {
             return "redirect:/Profile";// Redirect to profile if currentPassword was wrong
         }
         if (parameters.get("newPassword").get(0) != null) {

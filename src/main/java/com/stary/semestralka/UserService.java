@@ -14,7 +14,7 @@ public class UserService {
             throw new IllegalArgumentException("Username already exists");
         }
         userRepository.save(user);
-        System.out.println("User " + user.getId() + " registered successfully");
+        System.out.println("User " + user.getUserId() + " registered successfully");
     }
 
     public User authenticate(String email, String password) {
